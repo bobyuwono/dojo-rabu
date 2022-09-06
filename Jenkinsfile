@@ -1,4 +1,10 @@
 def DockerImage
+def remote = [:]
+remote.name = "jenkins"
+remote.host = "34.122.123.221"
+remote.user = "jenkins"
+remote.allowAnyHosts = true
+
 pipeline {
     agent any
     stages {
