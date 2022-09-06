@@ -9,8 +9,8 @@ pipeline {
             }
         }
         stage("Build Image") {
-            def DockerImage
             steps {
+                def DockerImage
                 script {
                     DockerImage = docker.build("mailsyarief/nginx-dojo:latest")
                     DockerImage.push()
