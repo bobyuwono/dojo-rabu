@@ -10,6 +10,12 @@ pipeline {
         }
         stage("Build Image") {
             steps {
+                def DockerImage = docker.build("mailsyarief/nginx-dojo:latest")
+                DockerImage.push()
+            }
+        }
+        stage("Build Push") {
+            steps {
                 echo "test"
             }
         }
