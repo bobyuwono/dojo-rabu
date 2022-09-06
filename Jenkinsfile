@@ -1,3 +1,4 @@
+def DockerImage
 pipeline {
     agent any
     stages {
@@ -10,7 +11,6 @@ pipeline {
         }
         stage("Build Image") {
             steps {
-                def DockerImage
                 script {
                     DockerImage = docker.build("mailsyarief/nginx-dojo:latest")
                     DockerImage.push()
