@@ -1,10 +1,4 @@
 def DockerImage
-def remote = [:]
-remote.name = "jenkins"
-remote.host = "34.122.123.221"
-remote.user = "jenkins"
-remote.allowAnyHosts = true
-
 pipeline {
     agent any
     stages {
@@ -31,7 +25,7 @@ pipeline {
         }
         stage("Deploy Image") {
             steps {
-                sshCommand remote: remote, command: "docker run -p 80:80 -d --name dojo_nginx mailsyarief/nginx-dojo:latest"
+                sh 'ssh -t jenkins@34.122.123.221 "pwd"'
             }
         }
     }
