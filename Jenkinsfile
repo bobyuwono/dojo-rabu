@@ -25,7 +25,8 @@ pipeline {
         }
         stage("Deploy Image") {
             steps {
-                sh 'ssh -t jenkins@34.122.123.221 "pwd"'
+                sh 'ssh -t jenkins@34.122.123.221 "docker container stop dojo_nginx" '
+                sh 'ssh -t jenkins@34.122.123.221 "docker run -p 80:80 -d --name dojo_nginx mailsyarief/nginx-dojo:latest" '
             }
         }
     }
