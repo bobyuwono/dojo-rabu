@@ -12,12 +12,16 @@ pipeline {
         }
         stage("Build Docker Image"){
             steps{
-                DockerImage = docker.build("mailsyarief/nginx-dojo:latest")
+                script {
+                    DockerImage = docker.build("mailsyarief/nginx-dojo:latest")
+                }
             }
         }
         stage("Push Image"){
             steps{
-                DockerImage.push()
+                script {
+                    DockerImage.push()
+                }
             }
         }
         stage("Deploy Image"){
