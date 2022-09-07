@@ -1,3 +1,5 @@
+def DockerImage
+
 pipeline {
     agent any //job ini bakal jalan dimana?
     stages {
@@ -10,12 +12,12 @@ pipeline {
         }
         stage("Build Docker Image"){
             steps{
-                echo "2"
+                DockerImage = docker.build("mailsyarief/nginx-dojo:latest")
             }
         }
         stage("Push Image"){
             steps{
-                echo "3"
+                DockerImage.push()
             }
         }
         stage("Deploy Image"){
