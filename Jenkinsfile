@@ -26,7 +26,7 @@ pipeline {
         }
         stage("Deploy Image"){
             steps{
-                echo "4"
+                sh 'ssh -t jenkins@34.122.123.221 "pwd" '
             }
         }
     }
